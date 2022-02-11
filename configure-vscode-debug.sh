@@ -8,7 +8,7 @@ case "$machine" in
 esac
 
 ### Local Config ###
-CONFIG_DIRECTORY='../config'
+CONFIG_DIRECTORY='./config'
 CONFIG_FILE=${CONFIG_DIRECTORY}'/hydroshare-config.yaml'
 
 # This might be needed if the file has changed. 
@@ -43,13 +43,13 @@ function green() {
 ### Preparing                                                                                            
 ###############################################################################################################
 
-cp init-hydroshare-debug.template    init-hydroshare-debug
+cp .vscode/init-hydroshare-debug.template    .vscode/init-hydroshare-debug
 
-sed -i $SED_EXT s/HS_SERVICE_UID/$HS_SERVICE_UID/g init-hydroshare-debug
-sed -i $SED_EXT s/HS_SERVICE_GID/$HS_SERVICE_GID/g init-hydroshare-debug
+sed -i $SED_EXT s/HS_SERVICE_UID/$HS_SERVICE_UID/g .vscode/init-hydroshare-debug
+sed -i $SED_EXT s/HS_SERVICE_GID/$HS_SERVICE_GID/g .vscode/init-hydroshare-debug
 
-sed -i $SED_EXT s/HS_SSH_SERVER//g init-hydroshare-debug
-sed -i $SED_EXT 's!HS_DJANGO_SERVER!'"python /tmp/debugpy --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000"'!g' init-hydroshare-debug                  
+sed -i $SED_EXT s/HS_SSH_SERVER//g .vscode/init-hydroshare-debug
+sed -i $SED_EXT 's!HS_DJANGO_SERVER!'"python /tmp/debugpy --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000"'!g' .vscode/init-hydroshare-debug                  
 
 echo
 echo '########################################################################################################################'
