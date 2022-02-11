@@ -32,6 +32,35 @@ function green() {
     echo -n "\x1B[1;32m${TEXT}\x1B[0m"
 }
 
+function red() {
+    local TEXT
+    if [ "$1" == "" ]; then
+        TEXT=Failure
+    else
+        TEXT="$1"
+    fi
+    echo -n "\x1B[31m${TEXT}\x1B[0m"
+}
+
+### Clean-up | Setup hydroshare environment
+
+REMOVE_CONTAINER=YES
+
+echo '########################################################################################################################'
+echo -e " `red 'REMOVING YOUR HYDROSHARE CONTAINER...'`"
+echo '########################################################################################################################'
+
+
+DOCKER_COMPOSER_YAML_FILE='.vscode/docker-compose.debug.yml'
+# HYDROSHARE_CONTAINERS=(nginx hydroshare defaultworker data.local.org rabbitmq solr postgis users.local.org)
+HYDROSHARE_CONTAINERS=(hydroshare)
+echo "  Removing HydroShare container..."
+for i in "${HYDROSHARE_CONTAINERS[@]}"; do
+echo -e "    Removing $i container if existed..."
+echo -e "     - docker rm -f `green $i`"
+docker rm -f $i 2>/dev/null 1>&2
+done
+
 ###############################################################################################################
 ### Preparing                                                                                            
 ###############################################################################################################
