@@ -1,5 +1,4 @@
 # docker-compose for debugging with vscode
-# docker-compose -p hydroshare -f .vscode/docker-compose.debug.yml up
 version: '3'
 services:
   data.local.org:
