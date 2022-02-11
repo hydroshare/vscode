@@ -29,6 +29,15 @@ sed -i 's/HS_SERVICE_GID:.*$/HS_SERVICE_GID: '$HS_GID'/' $CONFIG_DIRECTORY/hydro
 while read line; do export $line; done < <(cat ${CONFIG_DIRECTORY}/hydroshare-config.sh)
 
 ### Add color scheme to text | result output
+function green() {
+    local TEXT
+    if [ "$1" == "" ]; then
+        TEXT=Done
+    else
+        TEXT="$1"
+    fi
+    echo -n "\x1B[1;32m${TEXT}\x1B[0m"
+}
 
 ###############################################################################################################
 ### Preparing                                                                                            
