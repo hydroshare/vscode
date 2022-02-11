@@ -18,13 +18,6 @@ CONFIG_FILE=${CONFIG_DIRECTORY}'/hydroshare-config.yaml'
 HS_UID=`id -u`
 HS_GID=`id -g`
 
-# Set this user and group in hydroshare-config.yaml
-sed -i 's/HS_SERVICE_UID:.*$/HS_SERVICE_UID: '$HS_UID'/' $CONFIG_DIRECTORY/hydroshare-config.yaml
-sed -i 's/HS_SERVICE_GID:.*$/HS_SERVICE_GID: '$HS_GID'/' $CONFIG_DIRECTORY/hydroshare-config.yaml
-
-# Read hydroshare-config.yaml into hydroshare-config.sh
-# sed -e "s/:[^:\/\/]/=/g;s/$//g;s/ *=/=/g" ${CONFIG_FILE} | grep -v '^#' | grep -v ^$ > $CONFIG_DIRECTORY/hydroshare-config.sh
-
 # import hydroshare-config.sh into working environment
 while read line; do export $line; done < <(cat ${CONFIG_DIRECTORY}/hydroshare-config.sh)
 
