@@ -1,4 +1,4 @@
-# .vscode
+# vscode
 
 Git Submodule for vscode debug of Hydroshare Docker containers
 
