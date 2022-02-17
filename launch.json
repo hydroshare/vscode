@@ -4,6 +4,7 @@
             /* this uses docker-compose.debug.yml to allow vscode debug sessions using pydebug */
             "name": "Python: Docker Pydebug (vscode)",
             "type": "python",
+            "django": true,
             "request": "attach",
             "port": 5678,
             "host": "localhost",
