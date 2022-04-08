@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# init-hydroshare-debug
+# HydroShare container intiliaization script
+# Author: Devin Cowan <dcowan@cuahsi.org>
+
+sleep 3s
+cp /hydroshare/hydroshare.conf /etc/supervisor/conf.d/hydroshare.conf
+userdel hydro-service \
+ && groupdel storage-hydro \
+ && echo "storage-hydro:x:1000:" >> /etc/group \
+ && echo "hydro-service:x:1000:1000::/hydroshare:/bin/bash" >> /etc/passwd \
+ && chown -R hydro-service:storage-hydro /hydroshare /hs_tmp /shared_tmp /tmp \
+ && chmod -R 3777 /hs_tmp /shared_tmp /tmp
+
+# install debugpy for vscode connection
+pip install debugpy -t /tmp
+echo "Starting a debugpy session for you to connect with your debugger..."
+python /tmp/debugpy --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000
