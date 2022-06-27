@@ -14,8 +14,10 @@ Repo for vscode debug of Hydroshare Docker containers
 
 ## submodule
 You can run this as a git submodule too but I don't think we want to checkin any of the submodule info into the hydroshare repo
+
 So if you do this, just make sure you don't commit the added files to [Hydroshare](https://github.com/hydroshare/hydroshare)
+
 From your project root:
-`git submodule add -f git@github.com:hydroshare/vscode.git .vscode`
-`git submodule update --remote .vscode`
-then follow all of the above instructions to use
+- `git submodule add -f git@github.com:hydroshare/vscode.git .vscode`
+- `git submodule update --remote .vscode`
+- then follow all of the above instructions to use
