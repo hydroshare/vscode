@@ -150,6 +150,7 @@ services:
       HS_PATH: ${PWD}
       PYTHONPATH: /hydroshare
       DJANGO_SETTINGS_MODULE: hydroshare.settings
+      COLUMNS: 80
     ports:
       - "5555:5555"
     volumes:
