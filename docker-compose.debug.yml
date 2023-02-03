@@ -74,8 +74,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - "./log/nginx:/var/log/nginx"
-      - ".:/hydroshare"
+      - "../log/nginx:/var/log/nginx"
+      - "../:/hydroshare"
       - "temp_vol:/hs_tmp"
       - "share_vol:/irods/cache"
       - "idata_vault_vol:/irods/data"
