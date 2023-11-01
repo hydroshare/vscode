@@ -2,7 +2,7 @@
 version: '3'
 services:
   data.local.org:
-    image: hydroshare/hs-irods:latest
+    image: hydroshare/hs-irods:4.2.6-buster
     container_name: data.local.org
     hostname: data.local.org
     links:
