@@ -4,7 +4,7 @@ services:
   data.local.org:
     extends:
       file: ../local-dev.yml
-      service: users.local.org
+      service: data.local.org
   users.local.org:
     build:
       context: ..
