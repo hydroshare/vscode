@@ -15,6 +15,7 @@ services:
       - "iuser_iconf_vol:/etc/irods"
       - "iuser_vault_vol:/var/lib/irods"
       - "iuser_pgres_vol:/var/lib/postgresql/data"
+      - "iuser_home_vol:/home/hsuserproxy"
       - "../.ssh/id_ed25519_hs.pub:/home/hsuserproxy/.ssh/authorized_keys"
     environment:
       SHARED_NEG_KEY: 'hydroshareZonehydroshareuserZone'
@@ -180,6 +181,7 @@ volumes:
   iuser_iconf_vol:
   iuser_vault_vol:
   iuser_pgres_vol:
+  iuser_home_vol:
   postgis_data_vol:
   solr_data_vol:
   temp_vol:
