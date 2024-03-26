@@ -178,6 +178,7 @@ volumes:
   idata_iconf_vol:
   idata_vault_vol:
   idata_pgres_vol:
+  idata_home_vol:
   iuser_iconf_vol:
   iuser_vault_vol:
   iuser_pgres_vol:
