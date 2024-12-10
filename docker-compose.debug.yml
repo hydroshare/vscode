@@ -110,6 +110,14 @@ services:
     stdin_open: true
     tty: true
     command: /bin/bash init-defaultworker
+  companion:
+    extends:
+      file: ../local-dev.yml
+      service: companion
+  redis:
+    extends:
+      file: ../local-dev.yml
+      service: redis
 
 volumes:
   idata_iconf_vol:
@@ -121,3 +129,5 @@ volumes:
   temp_vol:
   share_vol:
   rabbitmq_data_vol:
+  redis_data_vol:
+  companion_vol:
