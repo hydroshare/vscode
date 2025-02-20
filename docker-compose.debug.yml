@@ -1,14 +1,10 @@
 # docker-compose for debugging with vscode
 version: '3'
 services:
-  data.local.org:
+  minio:
     extends:
       file: ../local-dev.yml
-      service: data.local.org
-    ports:
-      - "22:22"
-    stdin_open: true
-    tty: true
+      service: minio
   postgis:
     extends:
       file: ../local-dev.yml
@@ -63,12 +59,12 @@ services:
       - postgis:postgis
       - solr:solr
       - rabbitmq:rabbitmq
-      - data.local.org:data.local.org
+      - minio:minio
     depends_on:
       - postgis
       - solr
       - rabbitmq
-      - data.local.org
+      - minio
     stdin_open: true
     tty: true
     command: /bin/bash .vscode/init-hydroshare-debug
@@ -100,13 +96,13 @@ services:
     links:
       - postgis:postgis
       - rabbitmq:rabbitmq
-      - data.local.org:data.local.org
+      - minio:minio
     depends_on:
       - hydroshare
       - postgis
       - solr
       - rabbitmq
-      - data.local.org
+      - minio
     stdin_open: true
     tty: true
     command: /bin/bash init-defaultworker
@@ -120,14 +116,11 @@ services:
       service: redis
 
 volumes:
-  idata_iconf_vol:
-  idata_vault_vol:
-  idata_pgres_vol:
-  idata_home_vol:
   postgis_data_vol:
   solr_data_vol:
   temp_vol:
   share_vol:
   rabbitmq_data_vol:
+  minio_data_vol:
   redis_data_vol:
   companion_vol:
