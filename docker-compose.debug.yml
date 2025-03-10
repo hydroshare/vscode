@@ -9,6 +9,10 @@ services:
     extends:
       file: ../local-dev.yml
       service: postgis
+  pgbouncer:
+    extends:
+      file: ../local-dev.yml
+      service: pgbouncer
   rabbitmq:
     extends:
       file: ../local-dev.yml
@@ -114,6 +118,10 @@ services:
     extends:
       file: ../local-dev.yml
       service: redis
+  nginx:
+    extends:
+      file: ../local-dev.yml
+      service: nginx
 
 volumes:
   postgis_data_vol:
